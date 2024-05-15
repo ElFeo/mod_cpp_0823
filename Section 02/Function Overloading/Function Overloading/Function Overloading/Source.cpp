@@ -5,13 +5,15 @@ int Add(int a, int b) {
 double Add(double a, double b) {
 	return a + b;
 }
-extern "C" void Print(int *x) {
+extern "C" void PrintCStyle(const int *x) {
+     printf("using C style printf = %x\n", x);
 
+     return;
 }
 void Print(const int* x) {
-	std::cout << x << std::endl;
+    std::cout << x << std::endl;
 
-	return;
+    return;
 }
 int main() {
 	using namespace std;
@@ -21,5 +23,6 @@ int main() {
 	std::cout << dResult << std::endl;
 	const int x = 1;
 	Print(&x);
+	PrintCStyle(&x);
 	return 0;
 }
